@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React, { memo } from 'react';
+import { useRoutes } from 'react-router-dom';
+import routes from './router';
+const App = memo(() => {
+    return (
+        <div className='app'>
+            <div className="header">
+                header
+            </div>
+            <div className="page">
+                {/* 在此配置路由，使用router中的配置文件 */}
+                {useRoutes(routes)}
+            </div>
+            <div className="footer">
+                footer
+            </div>
+        </div>
+    );
+})
 
 export default App;
