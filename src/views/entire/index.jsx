@@ -1,14 +1,24 @@
-import React from 'react';
-import { EntireWrapper } from './style';
+import { fetchEntireDataAction } from "@/store/modules/entire/actionCreators";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import EntireFilter from "./c-cpns/entire-filter";
+import EntirePagination from "./c-cpns/entire-pagination";
+import EntireRooms from "./c-cpns/entire-rooms";
+import { EntireWrapper } from "./style";
 
 const Entire = () => {
-    return (
-      <EntireWrapper>
-        <div className="filter">filter-section</div>
-        <div className="rooms">rooms</div>
-        <div className="pagination">pagination</div>
-      </EntireWrapper>
-    );
-}
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchEntireDataAction());
+  }, [dispatch]);
+  
+  return (
+    <EntireWrapper>
+      <EntireFilter />
+      <EntireRooms />
+      <EntirePagination />
+    </EntireWrapper>
+  );
+};
 
 export default Entire;
