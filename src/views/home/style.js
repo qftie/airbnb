@@ -6,8 +6,4 @@ export const HomeWrapper = styled.div`
     margin: 0 auto;
     /* background-color: pink; */
   }
-  .section-header {
-    margin: 30px 0;
-  }
-
-`
+`;
