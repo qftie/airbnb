@@ -16,6 +16,7 @@ import theme from "./assets/theme";
 // 方法：craco => create-react-app config
 // 安装：npm install @craco/craco@alpha -D
 // 新建craco.config.js
+// d
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
