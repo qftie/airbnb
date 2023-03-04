@@ -9,7 +9,7 @@ import Indicator from "@/base-ui/Indicator";
 import classNames from "classnames";
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = "25%" } = props;
+  const { itemData, itemWidth = "25%" ,itemClick} = props;
   const sliderRef = useRef();
   const [selectIndex, setSelectIndex] = useState(0);
 
@@ -69,57 +69,19 @@ const RoomItem = memo((props) => {
     </div>
   );
 
+  const itemClickHandler=()=>{
+    // 跳转函数从父级传递，因为在首页时不跳转到详情
+    if (itemClick) itemClick(itemData)
+  }
+
   return (
     <ItemWrapper
       verifyColor={itemData?.verify_info?.text_color || "#39576a"}
       itemWidth={itemWidth}
+      onClick={itemClickHandler}
     >
       <div className="inner">
         {!itemData.picture_urls ? pictureElement : sliderElement}
-        {/* <div className="slider">
-          <div className="control">
-            <div
-              className="btn left"
-              onClick={(e) => controlClickHandler(false)}
-            >
-              <IconArrowLeft width="30" height="30" />
-            </div>
-
-            <div
-              className="btn right"
-              onClick={(e) => controlClickHandler(true)}
-            >
-              <IconArrowRight width="30" height="30" />
-            </div>
-          </div>
-          <div className="indicator">
-            <Indicator selectIndex={selectIndex}>
-              {itemData?.picture_urls.map((item, index) => {
-                return (
-                  <span className="item" key={item}>
-                    <span
-                      className={classNames("dot", {
-                        active: selectIndex === index,
-                      })}
-                    ></span>
-                  </span>
-                );
-              })}
-            </Indicator>
-          </div>
-          <Carousel dots={false} ref={sliderRef}>
-            {itemData?.picture_urls?.map((item) => {
-              return (
-                <div className="cover" key={item}>
-                  <img src={item} alt="预览图" />
-                </div>
-              );
-            })}
-          </Carousel>
-        </div> */}
-        {/* <div className="cover">
-          <img src={itemData.picture_url} alt="" />
-        </div> */}
         <div className="desc">{itemData.verify_info.messages.join("·")}</div>
         <div className="name">{itemData.name}</div>
         <div className="price">¥{itemData.price}/晚</div>

@@ -1,12 +1,11 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 export const RightWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: ${props => props.theme.color.textColor};
+  color: ${(props) => props.theme.color.textColor};
   font-weight: 600;
 
   .btns {
@@ -19,6 +18,7 @@ export const RightWrapper = styled.div`
       padding: 12px 15px;
       cursor: pointer;
       border-radius: 22px;
+      box-sizing: content-box;
 
       &:hover {
         background-color: #f5f5f5;
@@ -39,40 +39,40 @@ export const RightWrapper = styled.div`
     background-color: #fff;
     margin-right: 24px;
     cursor: pointer;
-    ${props => props.theme.mixin.boxShadow};
+    ${(props) => props.theme.mixin.boxShadow};
 
     .panel {
-        position: absolute;
-        right: 0;
-        top: 60px;
-        width: 240px;
-        background-color: #fff;
-        box-shadow: 0px 0px 6px 4px rgba(0,0,0,0.1);
-        border-radius: 6px;
-        color: #666;
-        
-        .top, .bottom {
-            padding: 10px 0;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      width: 240px;
+      background-color: #fff;
+      box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      color: #666;
 
-            .item {
-                height: 40px;
-                line-height: 40px;
-                padding: 0 16px;
+      .top,
+      .bottom {
+        padding: 10px 0;
 
-                &:hover {
-                    background-color: #eee;
-                }
-            }
+        .item {
+          height: 40px;
+          line-height: 40px;
+          padding: 0 16px;
+
+          &:hover {
+            background-color: #eee;
+          }
         }
-        .top {
-                border-bottom: 1px solid #ddd;
-            }
+      }
+      .top {
+        border-bottom: 1px solid #ddd;
+      }
     }
 
     /* transition: box-shadow 250ms ease; // 要过渡的属性 花费时间 运动曲线 何时开始
     &:hover {
         box-shadow: 0 2px 4px rgba(0,0,0,.18);
     } */
-
   }
-`
+`;
