@@ -13,7 +13,7 @@ const PictureBrowser = memo((props) => {
   const [selectIndex, setSelectIndex] = useState(0)
   const [isNext, setIsNext] = useState(true)
   const [showList, setShowList] = useState(true)
-  /* 当图片浏览器展示出来时，滚动消失 */
+  /* 当图片浏览器展示出来时，原来页面的滚动条消失 */
   useEffect(() => {
     document.body.style.overflow = "hidden"
   }, [])
@@ -26,8 +26,8 @@ const PictureBrowser = memo((props) => {
   }
 
   function controlClickHandle(isNext = true) {
-    let newIndex = isNext ? selectIndex + 1: selectIndex - 1
-    if (newIndex < 0) newIndex = pictureUrls.length - 1
+    let newIndex = isNext ? selectIndex + 1: selectIndex - 1 // 判断是向前或向后滚动
+    if (newIndex < 0) newIndex = pictureUrls.length - 1 // 超出边界时循环
     if (newIndex > pictureUrls.length - 1) newIndex = 0
     setSelectIndex(newIndex)
     setIsNext(isNext)
@@ -35,6 +35,7 @@ const PictureBrowser = memo((props) => {
 
   function imgItemClickHandle(index) {
     setSelectIndex(index)
+    // 为了滚动方向展示
     setIsNext(index > selectIndex)
   }
 
@@ -43,6 +44,7 @@ const PictureBrowser = memo((props) => {
   }
 
   return (
+    // 传给css in js判断左右进入的动画滑动方向
     <BrowserWrapper isNext={isNext}>
       <div className='top'>
         <span className='close-btn' onClick={closeBtnClickHandle}>
@@ -60,6 +62,7 @@ const PictureBrowser = memo((props) => {
           </div>
         </div>
         <div className='container'>
+            {/* react-transition-group */}
           <SwitchTransition mode='in-out'>
             <CSSTransition
               key={pictureUrls[selectIndex]}
@@ -72,6 +75,7 @@ const PictureBrowser = memo((props) => {
         </div>
       </div>
       <div className='preview'>
+        {/* info用来使缩略图列表显示在页面版心 */}
         <div className='info'>
           <div className='desc'>
             <div className='count'>
@@ -79,7 +83,7 @@ const PictureBrowser = memo((props) => {
               <span> room Apartment图片{selectIndex+1}</span>
               </div>
             <div className='toggle' onClick={toggleShowListHandle}>
-              隐藏照片列表
+              {showList? "隐藏": "显示"}照片列表
               {/* { showList ? <IconTriangleBottom/>: <IconTriangleTop/> } */}
             </div>
           </div>

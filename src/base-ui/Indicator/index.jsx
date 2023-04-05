@@ -6,12 +6,12 @@ const Indicator = memo((props) => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    // 1. 获取selectIndex对应的item
+    // 1. 获取selectIndex对应的item，item宽度，item左偏移量
     const selectItemEl = scrollRef.current?.children[selectIndex];
     const selectItemWidth = selectItemEl.clientWidth;
     const selectItemOffset = selectItemEl.offsetLeft;
 
-    // 2. content的宽度
+    // 2. content的宽度，以及滚动宽度
     const scrollElWidth = scrollRef.current?.clientWidth;
     const scrollElScroll = scrollRef.current?.scrollWidth;
 

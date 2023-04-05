@@ -4,6 +4,7 @@ import React, { memo, useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import DetailPictures from "./detail-pictures";
 import { DetailWrapper } from "./style";
+import AppHeader from "@/components/app-header";
 
 const Detail = memo((props) => {
   const { detailInfo } = useSelector(
@@ -14,6 +15,7 @@ const Detail = memo((props) => {
   );
   return (
     <DetailWrapper>
+      <AppHeader />
       <DetailPictures pictureUrls={detailInfo.picture_urls} />
     </DetailWrapper>
   );

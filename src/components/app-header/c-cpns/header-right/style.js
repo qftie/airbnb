@@ -39,6 +39,7 @@ export const RightWrapper = styled.div`
     background-color: #fff;
     margin-right: 24px;
     cursor: pointer;
+    z-index: 999;
     ${(props) => props.theme.mixin.boxShadow};
 
     .panel {

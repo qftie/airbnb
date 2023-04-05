@@ -11,6 +11,7 @@ import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { isEmptyO } from "@/utils";
 import HomeLongFor from "./c-cpns/home-longfor";
 import HomeSectionV3 from "./c-cpns/home-section-v3";
+import AppHeader from "@/components/app-header";
 
 const Home = memo(() => {
   /* 内部数据顺序：定义数据 -》从redux获取数据-》 数据转换和数据处理 -》副作用代码 */
@@ -44,26 +45,31 @@ const Home = memo(() => {
   /* 拓展：如果服务器动态发送各个区块的顺序要求动态展示，只需要把其中一块打包然后动服务器拿到区块顺序打包展示即可，这反应了react的灵活性，vue的template则较难做到 */
 
   return (
-    <HomeWrapper>
-      <div>
-        <HomeBanner />
-        <div className="content">
-          {/* 折扣数据 */}
-          {isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} />}
-          {isEmptyO(hotRecommendInfo) && (
-            <HomeSectionV2 infoData={hotRecommendInfo} />
-          )}
-          {isEmptyO(longForInfo) && <HomeLongFor infoData={longForInfo} />}
-          {isEmptyO(goodPriceInfo) && (
-            <HomeSectionV1 infoData={goodPriceInfo} />
-          )}
-          {isEmptyO(highScoreInfo) && (
-            <HomeSectionV1 infoData={highScoreInfo} />
-          )}
-          <HomeSectionV3 infoData={plusInfo} />
+    <>
+      <AppHeader isFixed={true} isHome={true} />
+      <HomeWrapper>
+        <div>
+          <HomeBanner />
+          <div className="content">
+            {/* 折扣数据 */}
+            {isEmptyO(discountInfo) && (
+              <HomeSectionV2 infoData={discountInfo} />
+            )}
+            {isEmptyO(hotRecommendInfo) && (
+              <HomeSectionV2 infoData={hotRecommendInfo} />
+            )}
+            {isEmptyO(longForInfo) && <HomeLongFor infoData={longForInfo} />}
+            {isEmptyO(goodPriceInfo) && (
+              <HomeSectionV1 infoData={goodPriceInfo} />
+            )}
+            {isEmptyO(highScoreInfo) && (
+              <HomeSectionV1 infoData={highScoreInfo} />
+            )}
+            <HomeSectionV3 infoData={plusInfo} />
+          </div>
         </div>
-      </div>
-    </HomeWrapper>
+      </HomeWrapper>
+    </>
   );
 });
 
