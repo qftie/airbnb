@@ -1,7 +1,5 @@
-import { changeDetailInfoAction } from "@/store/modules/detail";
-import PropTypes from "prop-types";
-import React, { memo, useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import React, { memo} from "react";
+import { shallowEqual, useSelector } from "react-redux";
 import DetailPictures from "./detail-pictures";
 import { DetailWrapper } from "./style";
 import AppHeader from "@/components/app-header";
@@ -20,7 +18,5 @@ const Detail = memo((props) => {
     </DetailWrapper>
   );
 });
-
-Detail.propTypes = {};
 
 export default Detail;
