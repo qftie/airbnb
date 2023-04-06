@@ -15,7 +15,7 @@ const Entire = () => {
   
   return (
     <EntireWrapper>
-      <AppHeader />
+      <AppHeader isFixed={false} isHome={false} />
       <EntireFilter />
       <EntireRooms />
       <EntirePagination />

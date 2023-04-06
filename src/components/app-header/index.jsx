@@ -11,7 +11,7 @@ import { HeaderWrapper, SearchAreaPlaceholder } from "./style";
 const AppHeader = memo((props) => {
   const {isFixed, isHome} = props
   const [isSearch, setIsSearch] = useState(false);
-  const [isAlpha, setIsAlpha] = useState(false);
+  const [isAlpha, setIsAlpha] = useState(false); // 透明状态
 
   /** redux中获取数据 */
 //   const { headerConfig } = useSelector((state) => ({

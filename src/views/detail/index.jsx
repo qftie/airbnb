@@ -15,7 +15,7 @@ const Detail = memo((props) => {
   );
   return (
     <DetailWrapper>
-      <AppHeader />
+      <AppHeader isFixed={false} isHome={false} />
       <DetailPictures pictureUrls={detailInfo.picture_urls} />
     </DetailWrapper>
   );
