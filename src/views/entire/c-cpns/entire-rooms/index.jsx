@@ -1,6 +1,5 @@
 import RoomItem from "@/components/room-item";
 import { changeDetailInfoAction } from "@/store/modules/detail";
-import PropTypes from "prop-types";
 import React, { memo, useCallback } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

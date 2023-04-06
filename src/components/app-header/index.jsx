@@ -2,7 +2,6 @@ import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { ThemeProvider } from "styled-components";
 import classNames from "classnames";
 import React, { memo, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
 import HeaderCenter from "./c-cpns/header-center";
 import HeaderLeft from "./c-cpns/header-left";
 import HeaderRight from "./c-cpns/header-right";

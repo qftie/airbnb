@@ -1,15 +1,1 @@
-{
-  "rules": {
-    "no-unused-vars": [
-      "error",
-      {
-        "vars": "all",
-        "args": "none",
-        "ignoreRestSiblings": false,
-        "varsIgnorePattern": "^_",
-        "argsIgnorePattern": "^_"
-      }
-    ],
-    "no-unused-imports": "off"
-  }
-}
+

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { SectionV2Wrapper } from "./style";
 import SectionHeader from "@/components/section-header";

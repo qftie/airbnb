@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { memo, useEffect, useRef } from "react";
 import { ViewWrapper } from "./style";
 import { useState } from "react";

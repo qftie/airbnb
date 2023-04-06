@@ -1,6 +1,5 @@
 import LongForItem from "@/components/longfor-item";
 import SectionHeader from "@/components/section-header";
-import { withInfo } from "antd/es/modal/confirm";
 import PropTypes from "prop-types";
 import React, { memo } from "react";
 import { LongForWrapper } from "./style";
